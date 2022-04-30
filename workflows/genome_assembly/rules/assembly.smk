@@ -18,7 +18,7 @@ rule flye:
         	--out-dir $outdir \
         	--threads {threads} \
         	--trestle --plasmids \
-        	-i {params.polish_iter}
+        	-i {params.polish_iter} &> {log}
         """
 
 
@@ -46,5 +46,5 @@ rule medaka_consensus:
         	-i {output.tmp_fastq} \
         	-d {input.assem} \
         	-t {threads} \
-        	-o $outdir
+        	-o $outdir &> {log}
         """

@@ -9,5 +9,5 @@ rule assembly_stats:
         "results/log/assembly_stats/{id}.log"
     shell:
         """
-        assembly-stats -s {input} | cut -f2- > {output}
+        assembly-stats -s {input} | cut -f2- > {output} 2> {log}
         """
