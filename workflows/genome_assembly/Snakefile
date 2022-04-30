@@ -12,4 +12,6 @@ include: "rules/quality_control.smk"
 
 rule all:
 	input:
-		expand(rules.assembly_stats.output, id = ids)
+		expand(rules.assembly_stats.output, id = ids),
+		expand(rules.checkm.output, id = ids)
+		
