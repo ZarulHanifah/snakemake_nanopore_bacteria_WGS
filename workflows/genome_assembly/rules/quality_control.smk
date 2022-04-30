@@ -16,9 +16,9 @@ rule checkm:
     input:
         rules.medaka_consensus.output.consensus
     output:
-        tmpout = temp("results/.tmp/checkm/{id}/{id}.fasta")),
-        out1 =  "results/checkm/Bacteria_{id}/storage/bin_stats_ext.tsv"),
-        faa =  "results/checkm/Bacteria_{id}/bins/{id}/genes.faa")
+        tmpout = temp("results/.tmp/checkm/{id}/{id}.fasta"),
+        out1 =  "results/checkm/Bacteria_{id}/storage/bin_stats_ext.tsv",
+        faa =  "results/checkm/Bacteria_{id}/bins/{id}/genes.faa"
     conda:
         "../envs/checkm.yaml"
     params:
@@ -27,7 +27,7 @@ rule checkm:
         taxon = "Bacteria",
     threads: 2
     log:
-        "results/log/checkm/{id}.log")
+        "results/log/checkm/{id}.log"
     message:
         "Running checkm on sample {wildcards.sample}"
     shell:
