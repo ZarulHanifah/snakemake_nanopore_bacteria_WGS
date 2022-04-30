@@ -4,7 +4,7 @@ import os
 configfile: "config/config.yaml"
 
 ids = os.listdir(config["input_folder"])
-# ids = filter(ids, "unclassified")
+ids = ids.remove("misc")
 
 include: "rules/assembly.smk"
 include: "rules/quality_control.smk"
