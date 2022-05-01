@@ -29,7 +29,7 @@ rule checkm:
     log:
         "results/log/checkm/{id}.log"
     message:
-        "Running checkm on sample {wildcards.sample}"
+        "Running checkm on sample {wildcards.id}"
     shell:
         """
         cp {input} {output.tmpout}
