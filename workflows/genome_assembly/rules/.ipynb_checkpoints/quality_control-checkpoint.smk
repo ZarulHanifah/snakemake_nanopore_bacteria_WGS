@@ -17,7 +17,7 @@ rule checkm:
         rules.medaka_consensus.output.consensus
     output:
         tmpout = temp("results/.tmp/checkm/{id}/{id}.fasta"),
-        ext =  "results/checkm/Bacteria_{id}/storage/bin_stats_ext.tsv",
+        out1 =  "results/checkm/Bacteria_{id}/storage/bin_stats_ext.tsv",
         faa =  "results/checkm/Bacteria_{id}/bins/{id}/genes.faa"
     conda:
         "../envs/checkm.yaml"
@@ -35,7 +35,7 @@ rule checkm:
         cp {input} {output.tmpout}
         
         tmpdir=$(dirname {output.tmpout})
-        outdir=$(dirname $(dirname {output.ext}))
+        outdir=$(dirname $(dirname {output.out1}))
 
         checkm taxonomy_wf -t {threads} -x {params.ext} \
          {params.rank} \

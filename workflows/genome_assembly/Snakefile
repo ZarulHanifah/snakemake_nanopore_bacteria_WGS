@@ -4,7 +4,6 @@ import os
 configfile: "config/config.yaml"
 
 ids = os.listdir(config["input_folder"])
-ids = [i for i in ids if i != "misc"]
 
 include: "rules/assembly.smk"
 include: "rules/quality_control.smk"
@@ -13,5 +12,5 @@ include: "rules/quality_control.smk"
 rule all:
 	input:
 		expand(rules.assembly_stats.output, id = ids),
-		expand(rules.checkm.output, id = ids)
+		expand(rules.checkm.output.ext, id = ids)
 		
