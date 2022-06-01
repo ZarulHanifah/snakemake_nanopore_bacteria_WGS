@@ -18,7 +18,8 @@ rule flye:
         	--out-dir $outdir \
         	--threads {threads} \
         	--trestle --plasmids \
-        	-i {params.polish_iter} &> {log}
+        	-i {params.polish_iter} \
+            --plasmids &> {log}
         """
 
 
