@@ -20,6 +20,8 @@ rule flye:
         	--trestle --plasmids \
         	-i {params.polish_iter} \
             --plasmids &> {log}
+
+        sed -i "s/[:,-]/_/g" {output}
         """
 
 
@@ -40,7 +42,7 @@ rule medaka_consensus:
     shell:
         """
         outdir=$(dirname {output.consensus})
-
+        
         cat {input.reads}/* > {output.tmp_fastq}
 
         medaka_consensus -m {params.model} \
